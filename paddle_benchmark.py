@@ -7,17 +7,14 @@ from datetime import datetime,timedelta
 
 ########################自定义区域########################
 ########################查询起始日期########################
-start_date='2023-01-02' #日期格式 '2023-01-02'
+start_date='2023-01-05' #日期格式 '2023-01-02'
 ########################查询结束日期########################
-end_date='2023-01-08' #日期格式 '2023-01-08'
+end_date='2023-01-11' #日期格式 '2023-01-08'
 ########################查询关键词########################
-keywords_list = [['飞桨'],['百度大脑'],['文心'],['文心大模型']]  #关键词格式 [['飞桨'],['pytorch']] 
+keywords_list = [['飞桨'],['百度大脑'],['文心'],['文心大模型']]  #关键词格式 [['飞桨'],['pytorch']]  百度大脑 文心 文心大模型
 ########################cookies########################
 # cookies如果失效则需要运行 python examples/test_baidu_login.py重新获取。
-cookies = """BAIDUID=F3D53AE7325A580549AF9EB65B414CE8:FG=1; BAIDUID_BFESS=F3D53AE7325A580549AF9EB65B414CE8:FG=1; BDUSS=03YmVlYU11VWwwNjJ1Mk1KVXVSMnBMem5BRTFBaG8wOVB3dUJDR3VvV3BvdUJqSVFBQUFBJCQAAAAAAAAAAAEAAAADmgsjd2tqZ3VsbjMxMzEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKkVuWOpFbljZE; BDUSS_BFESS=03YmVlYU11VWwwNjJ1Mk1KVXVSMnBMem5BRTFBaG8wOVB3dUJDR3VvV3BvdUJqSVFBQUFBJCQAAAAAAAAAAAEAAAADmgsjd2tqZ3VsbjMxMzEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKkVuWOpFbljZE; BIDUPSID=F3D53AE7325A580549AF9EB65B414CE8; H_PS_PSSID=36549_37971_37646_37555_37521_38022_37623_36920_37989_37936_38041_26350_37958_22157_37881; PSTM=1673074090; bdindexid=alm6tqevn0efehn1kmfennc3o7; PTOKEN=49920f6ba8dcaa764d31a23dee3aef15; PTOKEN_BFESS=49920f6ba8dcaa764d31a23dee3aef15; STOKEN=a7767d0bf091b2c560ad362b1db6a8b09ae5698fe3bd544b10c47c0b8b29fbcf; STOKEN_BFESS=a7767d0bf091b2c560ad362b1db6a8b09ae5698fe3bd544b10c47c0b8b29fbcf; UBI=fi_PncwhpxZ%7ETaJc9apU-z%7EXAXaQDYcXA4J; UBI_BFESS=fi_PncwhpxZ%7ETaJc9apU-z%7EXAXaQDYcXA4J; BDSVRTM=21; BD_HOME=1; __yjs_st=2_MTE2NjUwNTgwZWYzN2UzMWQ2OWZiMzZjZTljMWMyZmRiNzgxODdkYzYwZWQ5NGZlMzhhODlhNjBlYTFjNjQwMGYzNGMyYTdiMTRmMmRiNmI1OTJhZDVkZDk4YTMxY2ZiMzFlYmFlNmViNTY4OWJhN2VmZDkwM2NkNDJhNjM4YzUyNmY0N2U0ZTg2N2UwNzkxMDY4MjZiYmM2ZDBmNTAyNTdjN2QyZTYxMWM1ODhhMzhjNGM1NmNlNWI2NWViMGRjXzdfYjY2ZTkyYmI="""
-
-
-
+cookies = """token"""
 
 
 def test_get_search_index():
@@ -63,6 +60,7 @@ def test_get_search_index():
     datas_mean_lw =df_lw.groupby(['keyword']).mean(numeric_only=True)
 
 ########################计算环比数据########################
+# python3 examples/test_baidu_login.py
     df_wow = datas_mean['index']/datas_mean_lw['index']-1
 
 ########################保存excel########################

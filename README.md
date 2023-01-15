@@ -17,7 +17,7 @@
 
 ```shell script
 pip uninstall pycrypto  # 避免与pycryptodome冲突
-pip install --upgrade qdata
+pip3 install --upgrade qdata -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 ### Examples
